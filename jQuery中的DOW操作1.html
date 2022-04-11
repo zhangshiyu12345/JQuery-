@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+           var $li=$('ul li:eq(1)');
+           var li_txt=$li.text();
+           var li_tit=$li.attr("title");
+           //alert(li_tit);
+           //alert(li_txt);
+
+           var $li_1=$('<li>香蕉</li>');
+           var $li_2=$('<li>雪梨</li>');
+           var $li_3=$('<li>其他</li>');
+           var $parent=$('ul li:last');
+
+           $("ul").append($li_1);
+           $("ul").prepend($li_2);
+           $li_3.insertAfter($parent);
+
+           $('ul li:eq(1)').appendTo("ul");
+
+           $('ul li').click(function(){
+                $(this).clone(true).appendTo("ul");
+           });
+           $('p').replaceWith("<strong>你最不喜欢的水果是？</strong>");
+           $('strong').wrap("<b></b>");
+           
+           $('#address').focus(function(){
+               var txt_value=$(this).val();
+               if(txt_value=="请输入邮箱地址")
+               {
+                   $(this).val("");
+               }
+           });
+           $('#address').blur(function(){
+               var txt_value=$(this).val();
+               if(txt_value=="")
+               {
+                   $(this).val("请输入邮箱地址");
+               }
+           });
+
+           $('#password').focus(function(){
+               var txt_value=$(this).val();
+               if(txt_value=="请输入邮箱密码")
+               {
+                    $(this).val("");
+               }
+           });
+
+           $('#password').blur(function(){
+               var txt_value=$(this).val();
+               if(txt_value=="")
+               {
+                   $(this).val("请输入邮箱密码");
+               }
+           });
+           
+        });
+    </script>
+</head>
+<body>
+    <p title="选择你最喜欢的水果">"你喜欢的水果是?"</p>
+    <ul>
+        <li title="苹果">苹果</li>
+        <li title="橘子">橘子</li>
+        <li title="菠萝">菠萝</li>
+    </ul>
+
+    <input type="text" id="address" value="请输入邮箱地址"/>
+    <input type="text" id="password" value="请输入邮箱密码"/>
+    <input type="button" value="登录"/>
+</body>
+</html>
