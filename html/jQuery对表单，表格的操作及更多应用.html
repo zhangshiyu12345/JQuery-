@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+       #comment{
+           height: 500px;
+           width: 200px;
+           border: 1px solid red;
+       }
+    </style>
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+             var $comment=$("#comment");
+        $('.bigger').click(function(){
+            $comment.animate({height:"+=50"},"slow");
+        });
+
+        $('.smaller').click(function(){
+            $comment.height($comment.height()-50);
+        });
+        });
+    </script>
+</head>
+<body>
+    <div action="">
+        <div class="msg_caption">
+            <button class="bigger">放大</button>
+            <button class="smaller">缩小</button>
+        </div>
+
+        <textarea name="" id="comment" cols="20" rows="8">
+                多行文本框高度变化.多行文本框高度变化.多行文本框高度变化
+                多行文本框高度变化.多行文本框高度变化.多行文本框高度变化
+                多行文本框高度变化.多行文本框高度变化.多行文本框高度变化
+        </textarea>
+    </div>   
+</body>
+</html>

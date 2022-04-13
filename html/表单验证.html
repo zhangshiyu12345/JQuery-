@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+         $(function(){
+             $('form :input.required').each(function(){
+                 var $required=$("<strong class='high'>*</strong>");
+                 $(this).parent().append($required);
+             });
+
+             $('form :input').blur(function(){
+                 var $parent=$(this).parent();
+                 $parent.find(".formtips").remove();
+                 if($(this).is('#username'))
+                 {
+                     if(this.value==""||this.value.length<6)
+                     {
+                         var errorMsg="请输入至少6位的用户名.";
+                         $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
+                     }else{
+                         var okMsg="输入正确";
+                         $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
+                     }
+                 }
+             }).keyup(function(){
+                 $(this).triggerHandler("blur");
+             }).focus(function(){
+                 $(this).triggerHandler("blur");
+             });
+
+             $('#send').click(function(){
+                 $('form .required:input').trigger('blur');
+                 var numError=$('form .onError').length;
+                 if(numError)
+                 {
+                     return false;
+                 }
+                 else{
+                     alert("注册成功，密码已发到你的邮箱，请接收");
+                 }
+             });
+         });
+    </script>
+</head>
+<body>
+    <form action="post" action="">
+        <div class="int">
+            <label for="username">用户名:</label>
+            <input type="text" id="username" class="required">
+        </div>
+
+        <div class="int">
+             <label for="email">邮箱:</label>
+             <input type="text" id="email" class="required">
+        </div>
+
+        <div class="int">
+             <label for="email">个人资料:</label>
+            <input type="text" id="personinfo" class="required">
+        </div>
+
+        <div class="sub">
+            <input type="submit" value="提交" id="send"><input type="reset" id="res">
+        </div>
+    </form>
+</body>
+</html>
