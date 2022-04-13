@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style type="text/css">
+           *{
+               padding: 0;
+               margin: 0;
+           }
+           a{
+               text-decoration: none;
+           }
+           li{
+               list-style: none;
+           }
+           .v_show{
+              height: 300px;
+              width: 1205px;
+              border: 1px solid blue;
+           }
+           .v_caption{
+              width: 100%;
+              height: 30px;
+              background-color: antiquewhite;
+              display: flex;
+              justify-content: space-between;
+           }
+           .v_caption_1{
+               display: flex;
+           }
+           .v_caption_1{
+               width: 200px;
+               font-size: 14px;
+               padding: 4px 3px;
+               display: flex;
+               justify-content: space-around;
+           }
+           .v_caption_1 h2{
+               font-size: 14px;
+           }
+           .v_caption_1{
+               display: flex;
+               justify-content: space-between;
+           }
+           .gen{
+               margin-top: 6px;
+           }
+           .v_content{
+               width: 100%;
+               height: 200px;
+               background-color: darkcyan;
+               overflow: hidden;
+               position: relative;
+           }
+           .v_content_list ul{
+               width: 2410px;
+               position: absolute;
+               display: flex;
+           }
+           .v_content_list li img{
+                height: 200px;
+           }
+     </style>
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var page=1;
+            var i=4;
+            var $v_width=$("div.v_content").width();
+            alert($v_width);
+            var len=$('ul.v_ul').find("li").length;
+            alert(len);
+            var page_cout=Math.ceil(len/i);
+            $("button.next").click(function(){
+                if(page==page_cout)
+                {
+                     $("ul.v_ul").animate({left:"0px"},"slow");
+                     page=1;
+                }
+                else{
+                    $("ul.v_ul").animate({left:'-='+$v_width},"slow");
+                    page++;
+                }
+              
+            });
+
+            $("button.prev").click(function(){
+                $("ul.v_ul").animate({left:"0px"},"slow");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="v_show">
+        <div class="v_caption">
+            <div class="v_caption_1">
+                <h2 class="carttoon" title="卡通动漫">卡通动漫</h2>
+                 <div class="change_btn">
+                <button class="prev">上一页</button>
+                <button class="next">下一页</button>
+                </div>
+            </div>
+           
+            <div class="gen"><a href="#">更多>></a></div>
+        </div>
+
+       <div class="v_content">
+             <div class="v_content_list">
+                 <ul class="v_ul">
+                     <li><a href="#"><img src="../images/1.jpg" alt="雪糕"></a><h4><a href="#">雪糕</a></h4><span>播放:<em>28,276</em></span></li>
+                     <li><a href="#"><img src="../images/1.jpg" alt="雪糕"></a><h4><a href="#">雪糕</a></h4><span>播放:<em>28,276</em></span></li>
+                     <li><a href="#"><img src="../images/1.jpg" alt="雪糕"></a><h4><a href="#">雪糕</a></h4><span>播放:<em>28,276</em></span></li>
+                     <li><a href="#"><img src="../images/1.jpg" alt="雪糕"></a><h4><a href="#">雪糕</a></h4><span>播放:<em>28,276</em></span></li>
+                     <li><a href="#"><img src="../images/3.jpg" alt="雪糕"></a><h4><a href="#">雪糕</a></h4><span>播放:<em>28,276</em></span></li>
+                     <li><a href="#"><img src="../images/3.jpg" alt="雪糕"></a><h4><a href="#">雪糕</a></h4><span>播放:<em>28,276</em></span></li>
+                     <li><a href="#"><img src="../images/3.jpg" alt="雪糕"></a><h4><a href="#">雪糕</a></h4><span>播放:<em>28,276</em></span></li>
+                     <li><a href="#"><img src="../images/3.jpg" alt="雪糕"></a><h4><a href="#">雪糕</a></h4><span>播放:<em>28,276</em></span></li>
+                 </ul>
+             </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery的引入</title>
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+    <style type="text/css">
+        .SubCategoryBox a{
+            text-decoration: none;
+        }
+
+        li{
+            list-style: none;
+        }
+    </style>
+    <script type="text/javascript">
+        //页面加载事件
+        //jQuery(function(){});
+
+        $(function(){
+           var $category=$("ul li:gt(5):not(:last)");
+           $category.hide();
+           var $toggleBtn=$('div.showmore > a');
+           $toggleBtn.click(function(){
+               if($category.is(":hidden"))
+               {
+                    $category.show();
+               $(this).find("span").text("精品显示品牌");
+               $("ul li").filter(":contains('佳能')")
+                         .addClass("promoted");
+                
+               }
+               else{
+                   $category.hide();
+                   $(this).find("span").text("显示其他产品");
+                   $("ul li").removeClass("promoted");
+               }
+              
+               return false;
+           });
+           
+        });
+    </script>
+</head>
+<body>
+    <div class="SubCategoryBox">
+        <ul>
+            <li><a href="#">佳能</a><i>(30440)</i></li>
+            <li><a href="#">索尼</a><i>(30440)</i></li>
+            <li><a href="#">三星</a><i>(30440)</i></li>
+            <li><a href="#">尼康</a><i>(30440)</i></li>
+            <li><a href="#">松下</a><i>(30440)</i></li>
+            <li><a href="#">卡西欧</a><i>(30440)</i></li>
+            <li><a href="#">富士</a><i>(30440)</i></li>
+            <li><a href="#">柯达</a><i>(30440)</i></li>
+            <li><a href="#">宾得</a><i>(30440)</i></li>
+            <li><a href="#">理光</a><i>(30440)</i></li>
+            <li><a href="#">奥林巴斯</a><i>(30440)</i></li>
+            <li><a href="#">明基</a><i>(30440)</i></li>
+            <li><a href="#">爱国者</a><i>(30440)</i></li>
+            <li><a href="#">其他品牌</a><i>(30440)</i></li>
+            <li><a href="#">广博</a><i>(30440)</i></li>
+            <li><a href="#">尼柯</a><i>(30440)</i></li>
+            <li><a href="#">德国旅行家</a><i>(30440)</i></li>
+            <li><a href="#">通用</a><i>(30440)</i></li>
+        </ul>
+
+        <div class="showmore">
+            <a href="#"><span>显示其他品牌</span></a>
+        </div>
+    </div>
+</body>
+</html>

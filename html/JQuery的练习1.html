@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script text="text/javascript" src="../js/jquery-3.6.0.js"></script>
+    <style type="text/css">
+        .highlight{
+            background: #FF3300;
+        }
+    </style>
+    <script text="text/javascript">
+        $(function(){
+            $('#panel h5.head').bind("click",function(){
+                if($(this).next().is(":visible")){
+                    $(this).removeClass("highlight");
+                    $(this).next().fadeOut().slideUp();
+                }else{
+                    $(this).addClass("highlight");
+                    $(this).next().fadeIn("fast").slideDown();
+                }
+            })
+            $('#panel').css({"heigth":"100px","width":"100px"});
+
+            $("#box1").css({
+                "position":"relative",
+                "width":"100px",
+                "height":"100px",
+                "border":"1px solid #0050D0",
+                "background":"#96E555",
+                "cursor":"pointer"
+            }).click(function(){
+                $(this).animate({left:"+=500px",height:"200px",opacity:"1"},3000)
+                       .animate({top:"200px",width:"200px"},3000,function(){
+                           $(this).css({"border":"5px solid blue"});
+                       });
+            });
+
+            $("#box1").hover(function(){
+                $(this).stop().animate({heigth:"150",width:"300"});
+            }),function(){
+                $(this).stop().animate({height:"22",width:"60"},300);
+            };
+        });
+    </script>
+</head>
+<body>
+     <div id="panel">
+         <h5 class="head">什么是jQuery?</h5>
+         <div class="content" style="display: none;">
+            jQuery本身是一个基于插件的JavaScript库,它的各种功能可以通过新的插件进行增强。
+            jQuery为Web编程提供了一个抽象的层,使得它可以兼容于任何浏览器,
+            并且大大简化了原先用JavaScript做的工作,总而言之, jQuery可以完成如下所示的工作。
+         </div>
+     </div>
+
+     <div id="box1"></div>
+</body>
+</html>
