@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./jQuery的原理/njQuery-1.0.0.js"></script>
+    <script type="text/javascript">
+            // $(function(){
+                // console.log($('    <div><p>1</p></div><div><p>2</p></div>  '));
+                // console.log($('ul li'));
+                //console.log($([1,2,2]))
+               //// var likArr={0:"lnj",1:"33",2:"male"};
+               // alert(typeof likArr);
+               // console.log($(likArr));
+
+                // var likeArr = {0:"lnj", 1:"33", 2:"male", length: 3};
+            // console.log($(likeArr));
+
+            //console.log(typeof arr);
+            //console.log(typeof likeArr);
+            //console.log(arr.toString());
+            // console.log(likeArr.toString());
+            // console.log(({}).toString.apply(arr));
+            // });
+            // console.log($(1));
+            // console.log($(function Person(){}))
+          
+            
+            $(function(){
+                var arr=[1,2,3,4];
+                var obj={0:"0",1:"1",length:3};
+                njQuery.each(arr,function(key,value){
+                      if(key==2) return true;
+                      //console.log(key,value);
+                      console.log(this);
+                });
+                var res=document.querySelectorAll("li");
+                console.log(res);
+            });
+    </script>
+</head>
+<body>
+    <ul>
+    <li class="item">1</li>
+    <li>2</li>
+    <li>3</li>
+    </ul>
+</body>
+</html>

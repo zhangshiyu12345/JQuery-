@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+         *{
+             padding: 0;
+             margin: 0;
+         }
+         li{
+             list-style: none;
+         }
+         .tab{
+             height: 200px;
+             width: 200px;
+             background-color: antiquewhite;
+         }
+         .selected{
+             background-color: #ff6700;
+         }
+         .tab_menu{
+            width: 100%;
+            height: 25px;
+         }
+         .tab_menu li{
+             float: left;
+             padding-top: 4px;
+             height: 25px;
+             display: flex;
+             font-size: 14px;
+             justify-content: space-evenly;
+             margin-right: 3px;
+         }
+    </style>
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+             $('div.tab_menu ul li').click(function(){
+                 $(this).addClass("selected")
+                        .siblings().removeClass("selected");
+                 var index=$('div.tab_menu ul li').index(this);
+                 $('div.tab_box>div').eq(index).show()
+                                     .siblings().hide();
+             });
+        });
+    </script>
+</head>
+<body>
+    <div class="tab">
+        <div class="tab_menu">
+            <ul>
+                <li class="selected">时事</li>
+                <li>体育</li>
+                <li>娱乐</li>
+            </ul>
+        </div>
+
+        <div class="tab_box">
+            <div>时事</div>
+            <div class="hide">体育</div>
+            <div class="hide">娱乐</div>
+        </div>
+
+    </div>
+</body>
+</html>

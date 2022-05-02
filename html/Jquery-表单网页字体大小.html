@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('button').click(function(){
+                var thisEle=$('#para').css("font-size");
+                var textFontSize=parseInt(thisEle,10);
+                var unit=thisEle.slice(-2);
+                var cName=$(this).attr("class");
+                if(cName=='bigger')
+                {
+                    textFontSize+=2;
+                }else{
+                    textFontSize-=2;
+                }
+                $('#para').css("font-size",textFontSize+unit);
+            });
+        });
+    </script>
+</head>
+<body>
+     <div class="msg">
+         <div class="msg_caption">
+             <button class="bigger">放大</button>
+             <button class="smaller">缩小</button>
+         </div>
+
+         <div>
+             <p id="para"> 
+jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（框架）于2006年1月由John Resig发布。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。
+jQuery的核心特性可以总结为：具有独特的链式语法和短小清晰的多功能接口；具有高效灵活的CSS选择器，并且可对CSS选择器进行扩展；拥有便捷的插件扩展机制和丰富的插件。jQuery兼容各种主流浏览器，如IE 6.0+、FF 1.5+、Safari 2.0+、Opera 9.0+等。 [1] 
+
+             </p>
+         </div>
+     </div>
+</body>
+</html>

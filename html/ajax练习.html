@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+       $(function(){
+          
+               alert('1');
+               $.getJSON('1.json',function(data){
+                   alert('1');
+                   var html=''
+                   var i=0;
+                   $.each(data,function(commentIndex,comment){
+                       html+='<li>'+comment['content']+'</li>'
+                   });
+                   $('#resText').html(html);
+               }).trigger();
+           });
+       
+    </script>
+</head>
+<body>
+      <input type="button" id="btn1" value="提交">
+      <ul id="resText">
+      </ul>
+</body>
+</html>

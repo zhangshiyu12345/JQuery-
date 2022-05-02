@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#btn1').click(function(){
+                $.getJSON("http://www.baidu.com?tags=car&tagmode=any&format=json&jsonall back=?",
+                function(data){
+                     $.each(data.items,function(i,item){
+                         $("<img class='para'/>").attr("src",item.media.m)
+                                                 .appendTo("#resText");
+                         if(i==3){return false;}
+                     });
+                });
+            });
+
+            $('#loading').ajaxStart(function(){
+                $(this).show();
+            });
+            $('#loading').ajaxStop(function(){
+                $(this).hide();
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btn1" value="加载">
+    <div id="loading">加载中..</div>
+    <div id="resText" style="width: 1000px; height: 1000px; background-color: bisque;"></div>
+</body>
+</html>

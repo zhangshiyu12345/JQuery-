@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+         .even{
+             background-color: #FFF38F;
+         }
+         .odd{
+             background-color: #FFFFEE;
+         }
+         .selected{
+             background-color: lightskyblue;
+         }
+    </style>
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // $("tbody>tr:odd").addClass("odd");
+            // $("tbody>tr:even").addClass("even");
+             //$("tr:contains('王五')").addClass("selected");
+
+            // $('tbody>tr').click(function(){
+               //  $(this).addClass('selected')
+                  //      .siblings().removeClass('selected')
+                    //    .end()
+                    //    .find(':radio').attr('checked',true);
+             //});
+             
+             //$('table :radio:checked').parent().parent().addClass('selected');
+
+             $('tr.parent').click(function(){
+                 $(this)
+                 .toggleClass("selected")
+                 .siblings('.child_'+this.id).toggle();
+             }).click();
+
+             $("#filterName").keyup(function(){
+                 $('table tbody tr').hide()
+                                    .filter(":contains('"+$(this).val()+"')").show()
+             }).keyup();
+
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr><th>姓名</th><th>性别</th><th>暂住地</th></tr>
+        </thead>
+
+        <tbody>
+            <input type="text" id="filterName">
+            <tr class="parent" id="row_01"><td colspan="3">前台设计组</td></tr>
+            <tr class="child_row_01"><td>张山</td><td>男</td><td>浙江宁波</td></tr>
+            <tr class="child_row_01"><td>李四</td><td>男</td><td>浙江杭州</td></tr>
+
+            <tr class="parent" id="row_02"><td colspan="3">前台开发组</td></tr>
+            <tr class="child_row_02"><td>王五</td><td>男</td><td>湖南长沙</td></tr>
+            <tr class="child_row_02"><td>赵六</td><td>男</td><td>浙江温州</td></tr>
+
+            <tr class="parent" id="row_03"><td colspan="3">后台开发组</td></tr>
+            <tr class="child_row_03"><td>Rain</td><td>男</td><td>浙江杭州</td></tr>
+            <tr class="child_row_03"><td>MAXMAN</td><td>男</td><td>浙江杭州</td></tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #resText{
+            background-color: antiquewhite;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+         $(function(){
+             $('input').click(function(){
+                 $('#resText').load("test.html .para");
+             });
+         });
+    </script>
+</head>
+<body>
+     <input type="button" id="send" value="Ajax获取"/>
+     <div class="comment">已有评论.</div>
+     <div id="resText"></div>
+</body>
+</html>

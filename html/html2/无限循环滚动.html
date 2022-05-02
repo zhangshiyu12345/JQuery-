@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+         *{
+             margin: 0;
+             padding: 0;
+         }
+         div{
+             width: 1000px;
+             height: 333px;
+             border: 1px solid black;
+             margin: 100px auto;
+             overflow: hidden;
+         }
+         ul{
+             list-style: none;
+             width: 3000px;
+             height: 333px;
+             background: #000;
+
+         }
+         ul>li{
+             float: left;
+
+         }
+    </style>
+    <script type="text/javascript" src="/js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+          $(function(){
+              var offset=0;
+              var timer;
+              function autoPlay(){
+                  timer=setInterval(function(){
+                   offset+=-10;
+                   if(offset<=-2000)
+                   {
+                       offset=0;
+                   }
+                   $('ul').css("marginLeft",offset);
+              },50);
+              };
+              autoPlay();
+
+              $('li').hover(function(){
+                   //停止滚动
+                   clearInterval(timer);
+                   //非当前选中添加模板
+                   $(this).siblings().fadeTo(100,0.5);
+                   //去除当前选中的蒙版
+                   $(this).fadeTo(100,1);
+              },function(){
+                   //继续滚动
+                   autoPlay();
+                   //去除所有的蒙版
+                   $("li").fadeTo(100,1);
+              });
+          });
+    </script>
+</head>
+<body>
+    <div>
+     <ul>
+         <li><img src="/images/1.jpg" alt=""></li>
+         <li><img src="/images/3.jpg" alt=""></li>
+         <li><img src="/images/4.jpg" alt=""></li>
+         <li><img src="/images/4.jpg" alt=""></li>
+         <li><img src="/images/1.jpg" alt=""></li>
+         <li><img src="/images/3.jpg" alt=""></li>
+     </ul>
+     </div>
+</body>
+</html>

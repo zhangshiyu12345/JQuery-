@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+         *{
+             margin: 0;
+             padding: 0;
+         }
+         html,body{
+            width: 100%;
+            height: 100%;
+         }
+         body{
+             
+         }
+         .nav{
+             width: 1262px;
+             height: 30px;
+         }
+         .nav>img{
+             width: 1262px;
+         }
+         .content{
+             display: flex;
+             justify-content: space-between;
+             position: relative;
+         }
+         .content>img{
+             width: 190px;
+             height: 480px;
+             position: absolute;
+         }
+         .img1{
+             left: 100px;
+             top: 50px;
+         }
+         .img2{
+             right: 100px;
+             top: 50px;
+         }
+         .div1{
+             width: 670px;
+             height: 480px;
+             background-color: bisque;
+             position: absolute;
+             left: 305px;
+             top: 50px;
+         }
+         textarea{
+             width: 630px;
+             height: 100px;
+             margin-left: 10px;
+             margin-top: 10px;
+         }
+         #inp1{
+            margin-left: 10px;
+         }
+         .infoText{
+             width: 670px;
+             height: 100px;
+             background-color: white;
+             position: absolute;
+             left: 305px;
+             top: 200px;
+         }
+         a{
+             text-decoration: none;
+         }
+    </style>
+    <script type="text/javascript" src="/js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#inp1").click(function(){
+                
+            });
+            $("body").delegate("textarea","propertychange input",function(){
+                  //判断是否输入了内容
+                  //console.log($(this).val());
+                  if($(this).val().length>0){
+                      //让按钮可用
+                      $("#inp1").prop("disabled",false);
+                  }else{
+                      //让按钮不可用
+                      $("#inp1").prop("disabled",true);
+                  }
+            });
+
+            $('#inp1').click(function(){
+                //拿到用户输入的内容
+                var $text=$('textarea').val();
+                var $weibo=createEle($text);
+                $('messageList').prepend($weibo);
+            });
+             
+            //创建节点的方法 
+            function createEle(content)
+            {
+                var $weibo=$('<div class="infoText"><p>'+content+'</p><span class="infoHandle"><a href="javascript:;">删除</a></span></div>');
+                return $weibo;
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="nav">
+        <img src="./images/1.PNG" alt="">
+    </div>
+    <div class="content">
+        <img class="img1" src="./images/2.PNG" alt="">
+        <div class="div1">
+            <textarea name="text1" id="" cols="30" rows="10"></textarea>
+            <input type="button" id="inp1" value="提交" disabled>
+        </div>
+        <div class="messageList">
+            <div class="infoText">
+                <p>
+jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（框架）于2006年1月由John Resig发布。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。
+jQuery的核心特性可以总结为
+                </p>
+                <span class="infoHandle">
+                    <a href="javascript:;">删除</a>
+                </span>
+            </div>
+        </div>
+        <img class="img2" src="./images/3.PNG" alt="">
+    </div>
+</body>
+</html>

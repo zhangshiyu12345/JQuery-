@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat</title>
+    <script type="text/javascript" src="/static/jquery-3.6.0.js"></script>
+    <style type="text/css">
+        #wrapper{
+            display:flex;
+            flex-direction:column;
+            height: 500px;
+            width: 400px;
+            background-color: antiquewhite;
+        }
+        p{
+            width: 380px;
+            height: 300px;
+            background-color: burlywood;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function(){
+
+        });
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+         <p id="messagewindow"><span id="loading">加载中..</span></p>
+         <form id="charform">
+             姓名:<input type="text" id="author" size="50">
+             内容:<input type="text" id="msg" size="50">
+             <input type="submit" value="发送">
+         </form>
+    </div>
+</body>
+</html>
